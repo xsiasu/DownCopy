@@ -30,10 +30,19 @@
             "text": "Welcome to our store",
             "link": ""
           }
+        },
+        "00c086b0-e6db-4579-8cd8-25bd33d70026": {
+          "type": "announcement",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/12e9f4ce88bc4340afa8dd12d5b62834.jpg",
+            "text": "Welcome to our store",
+            "link": ""
+          }
         }
       },
       "block_order": [
-        "sections--20674272231704__3fe63db0-801e-476f-8771-0064e5eaf7a0-announcement-1"
+        "sections--20674272231704__3fe63db0-801e-476f-8771-0064e5eaf7a0-announcement-1",
+        "00c086b0-e6db-4579-8cd8-25bd33d70026"
       ],
       "settings": {
         "color_scheme": "",
