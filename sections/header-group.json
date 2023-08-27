@@ -2,38 +2,6 @@
   "name": "t:sections.header.name",
   "type": "header",
   "sections": {
-    "announcement-bar": {
-      "type": "announcement-bar",
-      "blocks": {
-        "announcement-bar-0": {
-          "type": "announcement",
-          "settings": {
-            "text": "USD20以上ご購入の場合、日本内への配送料無料",
-            "link": ""
-          }
-        },
-        "170289ea-7670-49a5-ae8f-3a76984a2956": {
-          "type": "announcement",
-          "settings": {
-            "text": "アプリで最大USD20割引をもらおう！",
-            "link": ""
-          }
-        }
-      },
-      "block_order": [
-        "announcement-bar-0",
-        "170289ea-7670-49a5-ae8f-3a76984a2956"
-      ],
-      "settings": {
-        "color_scheme": "accent-2",
-        "show_line_separator": true,
-        "show_social": false,
-        "auto_rotate": true,
-        "change_slides_speed": 5,
-        "enable_country_selector": false,
-        "enable_language_selector": false
-      }
-    },
     "header": {
       "type": "header",
       "settings": {
@@ -51,10 +19,35 @@
         "padding_top": 20,
         "padding_bottom": 20
       }
+    },
+    "3fe63db0-801e-476f-8771-0064e5eaf7a0": {
+      "type": "announcement-bar-kim",
+      "blocks": {
+        "sections--20674272231704__3fe63db0-801e-476f-8771-0064e5eaf7a0-announcement-1": {
+          "type": "announcement",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/12e9f4ce88bc4340afa8dd12d5b62834.jpg",
+            "text": "Welcome to our store",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "sections--20674272231704__3fe63db0-801e-476f-8771-0064e5eaf7a0-announcement-1"
+      ],
+      "settings": {
+        "color_scheme": "",
+        "show_line_separator": true,
+        "show_social": false,
+        "auto_rotate": false,
+        "change_slides_speed": 5,
+        "enable_country_selector": false,
+        "enable_language_selector": false
+      }
     }
   },
   "order": [
-    "announcement-bar",
-    "header"
+    "header",
+    "3fe63db0-801e-476f-8771-0064e5eaf7a0"
   ]
 }
