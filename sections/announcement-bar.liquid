@@ -41,8 +41,6 @@
           <p class="announcement-bar__message h5">
             <span>{{ section.blocks.first.settings.text | escape }}</span>
 
-            {% comment %} <span>{{ section.blocks.settings.image | image_url: width: 3840 | image_tag: loading: 'lazy' }}</span> {% endcomment %}
-
             {%- if section.blocks.first.settings.link != blank -%}
               {% render 'icon-arrow' %}
             {%- endif -%}
@@ -296,12 +294,6 @@
       "type": "announcement",
       "name": "t:sections.announcement-bar.blocks.announcement.name",
       "settings": [
-        {
-          "type": "image_picker",
-          "id": "image",
-          "label": "Image",
-          "info": "1560 x 1050px jpg recommended"
-        },
         {
           "type": "text",
           "id": "text",
