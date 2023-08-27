@@ -13,6 +13,27 @@
       min-height: 3.8rem;
       width: 100%;
     }
+    .announcement-bar-slider,
+    .announcement-bar-slider .slider {
+      width: 100%;
+    }
+
+    .announcement-bar-kim .slider-button--next {
+      margin-right: -1.5rem;
+      min-width: 44px;
+    }
+
+    .announcement-bar-kim .slider-button--prev {
+      margin-left: -1.5rem;
+      min-width: 44px;
+    }
+
+    .announcement-bar-kim .slider-button--next:focus-visible,
+    .announcement-bar .slider-button--prev:focus-visible,
+    .utility-bar .list-social__link:focus-visible {
+      outline-offset: -0.3rem;
+      box-shadow: 0 0 0 -0.2rem rgb(var(--color-foreground));
+    }
   }
 {%- endstyle -%}
 
