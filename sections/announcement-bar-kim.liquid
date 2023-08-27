@@ -110,8 +110,10 @@
                       >
                     {%- endif -%}
 
-                    <p class="announcement-bar__message h5">
-                      {{ block.settings.image | image_url: 300 | image_tag: loading: 'lazy' }}
+                    <p
+                      class="announcement-bar__message h5"
+                      style="background-image:'{{ block.settings.image | image_url: width: 300 | image_tag: loading: 'lazy' }}'"
+                    >
                       {% comment %} <span>{{ block.settings.text | escape }}</span> {% endcomment %}
                       {%- if block.settings.link != blank -%}
                         {% render 'icon-arrow' %}
