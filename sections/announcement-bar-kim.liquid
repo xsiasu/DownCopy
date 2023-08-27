@@ -5,7 +5,8 @@
   }
 
   @media screen and (min-width: 750px) {
-    .page-width: {
+    .announcement-bar--kim {
+      background-size: contain;
       width: 100%;
     }
   }
@@ -111,7 +112,7 @@
                     {%- endif -%}
 
                     <p
-                      class="announcement-bar__message h5"
+                      class="announcement-bar--kim h5"
                       style="background-image:url('{{ block.settings.image  | image_url: width: 3840}}) no-repeat 0 0'"
                     >
                       <span>{{ block.settings.text | escape }}</span>
