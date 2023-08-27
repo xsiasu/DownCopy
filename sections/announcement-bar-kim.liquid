@@ -162,6 +162,8 @@
     margin: 0;
     letter-spacing: 0.1rem;
     min-height: 3.8rem;
+    width: 100%;
+    background-size: contain;
   }
 
   .utility---kim .announcement-bar-slider--fade-in-next .announcement-bar__message,
@@ -324,7 +326,7 @@
                     {%- endif -%}
 
                     <p
-                      class="announcement-bar__message      h5 test"
+                      class="announcement-bar__message h5"
                       style="background-image:url('{{ block.settings.image  | image_url: width: 3840}}) no-repeat 0 0'"
                     >
                       <span>{{ block.settings.text | escape }}</span>
