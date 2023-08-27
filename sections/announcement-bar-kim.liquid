@@ -112,7 +112,7 @@
 
                     <p
                       class="announcement-bar__message h5"
-                      style="background-image:'{{ block.settings.image | image_url: width: 300 | image_tag: loading: 'lazy' }}'"
+                      style="background-image:'{{ block.settings.image }}'"
                     >
                       {% comment %} <span>{{ block.settings.text | escape }}</span> {% endcomment %}
                       {%- if block.settings.link != blank -%}
