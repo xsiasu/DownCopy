@@ -5,7 +5,7 @@
   }
 
   @media screen and (min-width: 750px) {
-    .announcement-bar--kim {
+    .announcement-bar-img--kim {
       text-align: center;
       padding: 1rem 0;
       margin: 0;
@@ -68,7 +68,7 @@
       </div>
     {%- elsif section.blocks.size > 1 -%}
       <slideshow-component
-        class="announcement-bar"
+        class="announcement-bar-kim"
         role="region"
         aria-roledescription="{{ 'sections.announcements.carousel' | t }}"
         aria-label="{{ 'sections.announcements.announcement_bar' | t }}"
@@ -116,7 +116,7 @@
                     {%- endif -%}
 
                     <p
-                      class="announcement-bar--kim h5 test"
+                      class="announcement-bar-img--kim h5 test"
                       style="background-image:url('{{ block.settings.image  | image_url: width: 3840}}) no-repeat 0 0'"
                     >
                       <span>{{ block.settings.text | escape }}</span>
