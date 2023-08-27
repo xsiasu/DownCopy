@@ -1,5 +1,15 @@
 {{ 'component-slideshow.css' | asset_url | stylesheet_tag }}
 {{ 'component-slider.css' | asset_url | stylesheet_tag }}
+{%- style -%}
+  @media screen and (max-width: 749px) {
+  }
+
+  @media screen and (min-width: 750px) {
+    .page-width: {
+      width: 100%;
+    }
+  }
+{%- endstyle -%}
 
 {%- liquid
   assign social_icons = true
@@ -101,7 +111,7 @@
                     {%- endif -%}
 
                     <p class="announcement-bar__message h5">
-                      {{ block.settings.image | image_url | image_tag: loading: 'lazy' }}
+                      {{ block.settings.image | image_url: 300 | image_tag: loading: 'lazy' }}
                       {% comment %} <span>{{ block.settings.text | escape }}</span> {% endcomment %}
                       {%- if block.settings.link != blank -%}
                         {% render 'icon-arrow' %}
