@@ -112,7 +112,7 @@
 
                     <p
                       class="announcement-bar__message h5"
-                      style="background-image:url('{{ block.settings.image image_url: width: 300 }}) no-repeat 0 0'"
+                      style="background-image:url('{{ block.settings.image  | image_url: width: 3840}}) no-repeat 0 0'"
                     >
                       <span>{{ block.settings.text | escape }}</span>
                       {%- if block.settings.link != blank -%}
