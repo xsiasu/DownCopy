@@ -1,0 +1,612 @@
+{% comment %}
+  {%- if section.settings.layout_mode == 'carousel' -%}
+    {%- capture flickity_options -%}
+
+    {%- endcapture -%}
+  {%- endif -%}
+{% endcomment %}
+
+<section
+  class="Section Section--spacingNormal"
+  data-section-id="{{ section.id }}"
+  data-section-type="featured-collections"
+  data-settings="{{ section_settings }}"
+>
+  <header>
+    <div>
+      <h3></h3>
+    </div>
+  </header>
+  {% for block in section.blocks %}
+    {% comment %} {% assign collection = collection[block.settings.collection] %} {% endcomment %}
+    <div class="TabPanel">
+      <div class="ProductListWraper">
+        {% if block.settings.collection != empty %}
+          {%- assign item_count = block.settings.grid_items_count -%}
+
+          {%- if block.settings.collection.products_count < block.settings.grid_items_count -%}
+            {%- assign item_count = block.settings.collection.products_count -%}
+          {%- endif -%}
+
+          {% if section.settings.layout_mode == 'grid' %}
+            <div class="ProductList ProductList--grid ProductList--removeMargin Grid">
+              {%- for product in block.settings.collection.products limit: block.settings.grid_items_count -%}
+                <div
+                  class="Grid__Cell 1/{{ section.settings.grid_mobile_items_per_row }}--phone 1/2--tablet 1/{{ section.settings.grid_desktop_items_per_row }}--lap-and-up"
+                >
+                  {%- render 'product-item',
+                    show_product_info: section.settings.show_product_info,
+                    show_color_swatch: section.settings.show_color_swatch,
+                    show_labels: true
+                  -%}
+                </div>
+              {% endfor %}
+            </div>
+          {% else %}
+            <div
+              class="ProductList ProductList--carousel Carousel"
+            >
+              {%- for product in block.settings.collection.products limit: block.settings.grid_items_count -%}
+                <div class="carousel-cell">
+                  {%- render 'product-item',
+                    show_product_info: section.settings.show_product_info,
+                    show_color_swatch: section.settings.show_color_swatch,
+                    show_labels: true
+                  -%}
+                </div>
+              {%- endfor -%}
+            </div>
+          {% endif %}
+
+        {%- else -%}
+          {%- comment -%}If collection is not set, we use placeholder content for all three layout mode{%- endcomment -%}
+
+          {%- capture products_placeholder -%}
+            {%- for i in (1..block.settings.grid_items_count) -%}
+              <div class="{% if section.settings.layout_mode == 'grid' %}Grid__Cell 1/{{ section.settings.grid_mobile_items_per_row }}--phone 1/2--tablet-and-up 1/{{ section.settings.grid_desktop_items_per_row }}--lap-and-up{% else %}Carousel__Cell{% endif %}">
+                <div class="ProductItem">
+                  <div class="ProductItem__Wrapper">
+
+                    <a href="#" class="ProductItem__ImageWrapper">
+                      {% capture current %}{% cycle 1, 2, 3, 4, 5, 6 %}{% endcapture %}
+                      {{ 'product-' | append: current | placeholder_svg_tag: 'ProductItem__Image PlaceholderSvg PlaceholderSvg--dark' }}
+                    </a>
+
+                    {%- if section.settings.show_product_info -%}
+                      <div class="ProductItem__Info ProductItem__Info--{{ settings.product_info_alignment }}">
+                        <h2 class="ProductItem__Title Heading">{{ 'home_page.onboarding.product_title' | t }}</h2>
+
+                        <div class="ProductItem__PriceList Heading">
+                          <span class="ProductItem__Price Price Text--subdued" data-money-convertible>{{ 3000 | money_without_trailing_zeros }}</span>
+                        </div>
+                      </div>
+                    {%- endif -%}
+                  </div>
+                </div>
+              </div>
+            {%- endfor -%}
+          {%- endcapture -%}
+
+          {%- if section.settings.layout_mode == 'grid' -%}
+            <div
+              class="ProductList ProductList--grid ProductList--removeMargin Grid"
+              data-mobile-count="{{ section.settings.grid_mobile_items_per_row }}"
+              data-desktop-count="{{ section.settings.grid_desktop_items_per_row }}"
+            >
+              {{ products_placeholder }}
+            </div>
+          {%- else -%}
+            <div class="ProductList ProductList--carousel Carousel">
+              {{ products_placeholder }}
+            </div>
+          {%- endif -%}
+        {%- endif -%}
+      </div>
+    </div>
+  {% endfor %}
+</section>
+<script>
+  var elem = document.querySelector('.Carousel');
+  var flkty = new Flickity(elem, {
+    prevNextButtons: true,
+    pageDots: false,
+    wrapAround: false,
+    contain: true,
+    cellAlign: 'center',
+    watchCSS: true,
+    dragThreshold: 8,
+    groupCells: true,
+    arrowShape: { x0: 20, x1: 60, y1: 40, x2: 60, y2: 35, x3: 25 },
+  });
+</script>
+
+<style>
+  /** * ---sk------------------------------------------------------------------------- * Product item * ---------------------------------------------------------------------------- */
+  .ProductItem {
+    text-align: center;
+    white-space: normal;
+  }
+
+  .js .ProductList--grid .ProductItem {
+    visibility: hidden;
+  }
+
+  .ProductItem__Wrapper {
+    position: relative;
+  }
+
+  .ProductItem__ImageWrapper {
+    display: block;
+  }
+
+  .ProductItem__Image--alternate {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0 !important;
+    -o-object-fit: cover;
+    object-fit: cover;
+    -o-object-position: center;
+    object-position: center;
+  }
+
+  .ProductItem__LabelList {
+    position: absolute;
+    left: 10px;
+    top: 6px;
+    text-align: left;
+  }
+
+  .ProductItem__Label {
+    display: block;
+    font-size: 9px;
+    margin: 4px 0;
+    padding: 2px 6px;
+    background: #fff;
+  }
+
+  .ProductItem__Info {
+    margin-top: 20px;
+    font-size: 11px;
+  }
+
+  .ProductItem__Info--left {
+    text-align: left;
+  }
+
+  .ProductItem__Info--right {
+    text-align: right;
+  }
+
+  .ProductItem__Title {
+    display: block;
+    margin-bottom: 4px;
+  }
+
+  .ProductItem__ColorSwatchList {
+    margin-top: 15px;
+  }
+
+  .ProductItem__ColorSwatchItem {
+    display: inline-block;
+    margin: 0 5px;
+  }
+
+  .ProductItem__ColorSwatchList + .ProductItem__PriceList {
+    margin-top: 12px;
+  }
+
+  @media (-moz-touch-enabled: 0), (hover: hover) {
+    .ProductItem__ImageWrapper--withAlternateImage:hover .ProductItem__Image {
+      opacity: 0 !important;
+    }
+
+    .ProductItem__ImageWrapper--withAlternateImage:hover .ProductItem__Image--alternate {
+      opacity: 1 !important;
+    }
+  }
+
+  @media (-moz-touch-enabled: 1), (hover: none) {
+    .ProductItem__Image--alternate {
+      display: none;
+      /* This prevents the image to be lazy-loaded */
+    }
+  }
+
+  @media screen and (min-width: 641px) {
+    .ProductItem__Label {
+      font-size: 11px;
+    }
+
+    .ProductItem__Info {
+      font-size: 12px;
+    }
+  }
+
+  @media screen and (min-width: 1008px) {
+    .ProductItem--horizontal {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+      justify-content: space-between;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center;
+    }
+
+    .ProductItem--horizontal .ProductItem__Wrapper {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center;
+    }
+
+    .ProductItem--horizontal .ProductItem__ImageWrapper {
+      min-width: 100px;
+    }
+
+    .ProductItem--horizontal .ProductItem__Info {
+      margin: 0 30px 0 40px;
+      text-align: left;
+    }
+
+    .ProductItem--horizontal .ProductItem__ViewButton {
+      -ms-flex-negative: 0;
+      flex-shrink: 0;
+    }
+  }
+  /** * --sk-------------------------------------------------------------------------- * Product grid * ---------------------------------------------------------------------------- */
+  .CollectionInner {
+    margin-top: 24px;
+  }
+
+  .ProductList--grid {
+    padding: 0 12px;
+  }
+
+  @media screen and (max-width: 640px) {
+    .ProductList--grid {
+      margin-left: -10px;
+    }
+
+    .ProductList--removeMargin {
+      margin-bottom: -35px !important;
+    }
+
+    .ProductList--grid > .Grid__Cell {
+      padding-left: 10px;
+      margin-bottom: 35px;
+    }
+  }
+
+  @media screen and (min-width: 641px) {
+    .CollectionInner {
+      margin-top: 50px;
+    }
+
+    .ProductList--grid {
+      padding: 0 24px;
+      margin-left: -24px;
+    }
+
+    .ProductList--removeMargin {
+      margin-bottom: -50px !important;
+    }
+
+    .ProductList--grid > .Grid__Cell {
+      padding-left: 24px;
+      margin-bottom: 50px;
+    }
+  }
+
+  @media screen and (min-width: 1008px) {
+    .CollectionInner {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+    }
+
+    .CollectionInner__Sidebar {
+      position: -webkit-sticky;
+      position: sticky;
+      top: 200px;
+      -webkit-box-flex: 0;
+      -ms-flex: none;
+      flex: none;
+      -ms-flex-item-align: start;
+      align-self: flex-start;
+      width: 200px;
+      margin: 0 16px 0 24px;
+      padding-bottom: 50px;
+    }
+
+    @supports (--css: variables) {
+      top: calc(var(--header-height) + 50px);
+    }
+
+    @supports (--css: variables) {
+      .CollectionInner__Sidebar--withTopToolbar {
+        top: calc(var(--header-height) * var(--use-sticky-header, 0) + 105px);
+      }
+    }
+
+    .CollectionInner__Products {
+      -webkit-box-flex: 1;
+      -ms-flex: 1 0 0px;
+      flex: 1 0 0;
+    }
+
+    .CollectionInner__Sidebar .Collapsible {
+      padding: 0;
+    }
+  }
+
+  @media screen and (min-width: 1240px) {
+    .CollectionInner__Sidebar {
+      margin-right: 10px;
+      margin-left: 50px;
+    }
+
+    .CollectionInner .Pagination {
+      margin-bottom: 80px;
+    }
+
+    .ProductList--grid {
+      padding: 0 50px;
+    }
+
+    .ProductList--grid[data-desktop-count='2'] {
+      margin-left: -60px;
+    }
+
+    .ProductList--grid[data-desktop-count='2'] > .Grid__Cell {
+      padding-left: 60px;
+      margin-bottom: 75px;
+    }
+
+    .ProductList--removeMargin[data-desktop-count='2'] {
+      margin-bottom: -75px !important;
+    }
+
+    .ProductList--grid[data-desktop-count='4'],
+    .ProductList--grid[data-desktop-count='3'] {
+      margin-left: -60px;
+    }
+
+    .ProductList--grid[data-desktop-count='4'] > .Grid__Cell,
+    .ProductList--grid[data-desktop-count='3'] > .Grid__Cell {
+      padding-left: 60px;
+      margin-bottom: 60px;
+    }
+
+    .ProductList--removeMargin[data-desktop-count='4'],
+    .ProductList--removeMargin[data-desktop-count='3'] {
+      margin-bottom: -60px !important;
+    }
+  }
+
+  /** * ---------------------------------------------------------------------------- * Product carousel * ---------------------------------------------------------------------------- */
+  .ProductList--carousel .Carousel__Cell {
+    width: 62%;
+    padding: 0 12px;
+    vertical-align: top;
+  }
+
+  @media screen and (max-width: 640px) {
+    .template-search .ProductList--grid,
+    .template-collection .ProductList--grid {
+      margin-bottom: 20px;
+      /* hack, would require some better code */
+    }
+  }
+
+  @media screen and (max-width: 1007px) {
+    /* On phone and tablet we do not use the carousel but instead use a free scroll, which offers better performance */
+    .ProductListWrapper {
+      overflow: hidden;
+    }
+
+    .ProductList--carousel {
+      white-space: nowrap;
+      overflow-x: auto;
+      overflow-y: hidden;
+      -webkit-overflow-scrolling: touch;
+      padding-bottom: 30px;
+      /* This is a trick to hide the scrollbar on iOS */
+      margin-bottom: -30px;
+    }
+
+    .ProductList--carousel .Carousel__Cell {
+      display: inline-block !important;
+    }
+
+    .ProductList--carousel .Carousel__Cell:first-child {
+      margin-left: 19%;
+      /* This is (100% - 62%) / 2, where 62% is the width of a single cell */
+    }
+
+    .ProductList--carousel .Carousel__Cell:last-child {
+      margin-right: 19%;
+      /* This is (100% - 62%) / 2, where 62% is the width of a single cell */
+    }
+  }
+
+  @media screen and (min-width: 641px) and (max-width: 1007px) {
+    .ProductList--carousel .Carousel__Cell {
+      width: 48%;
+      padding: 0 15px;
+    }
+
+    .ProductList--carousel .Carousel__Cell:first-child {
+      margin-left: 26%;
+      /* This is (100% - 48%) / 2, where 48% is the width of a single cell */
+    }
+
+    .ProductList--carousel .Carousel__Cell:last-child {
+      margin-right: 26%;
+      /* This is (100% - 48%) / 2, where 48% is the width of a single cell */
+    }
+  }
+
+  @media screen and (min-width: 1008px) {
+    .ProductList--carousel {
+      margin: 0 90px;
+    }
+
+    .ProductList--carousel::after {
+      content: 'flickity';
+      display: none;
+    }
+
+    .ProductList--carousel .Carousel__Cell {
+      width: 33.3333%;
+      left: 0;
+      padding: 0 30px;
+      margin-left: 0;
+    }
+
+    .ProductList--carousel .flickity-prev-next-button {
+      top: calc(50% - 45px);
+      width: 45px;
+      height: 45px;
+      stroke-width: 1px;
+    }
+
+    .ProductList--carousel .flickity-prev-next-button.next {
+      right: -50px;
+    }
+
+    .ProductList--carousel .flickity-prev-next-button.previous {
+      left: -50px;
+    }
+  }
+
+  @media screen and (min-width: 1240px) {
+    .ProductList--carousel .Carousel__Cell {
+      width: 25%;
+    }
+  }
+</style>
+{% schema %}
+{
+  "name": "Featured collections Kim",
+  "class": "shopify-section--bordered",
+  "max_blocks": 2,
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Sub-heading",
+      "default": "Featured collection"
+    },
+    {
+      "type": "select",
+      "id": "layout_mode",
+      "label": "Layout",
+      "options": [
+        {
+          "value": "grid",
+          "label": "Grid"
+        },
+        {
+          "value": "carousel",
+          "label": "Carousel"
+        }
+      ],
+      "default": "grid"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_product_info",
+      "label": "Show product info",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_color_swatch",
+      "label": "Show color swatch",
+      "info": "Some colors appear white? [Learn more](http://support.maestrooo.com/article/80-product-uploading-custom-color-for-color-swatch).",
+      "default": false
+    },
+    {
+      "type": "header",
+      "content": "Grid",
+      "info": "Those settings apply only if the layout mode is set to grid."
+    },
+    {
+      "type": "select",
+      "id": "grid_mobile_items_per_row",
+      "label": "Products per row (mobile)",
+      "options": [
+        {
+          "value": "1",
+          "label": "1"
+        },
+        {
+          "value": "2",
+          "label": "2"
+        }
+      ],
+      "default": "2"
+    },
+    {
+      "type": "range",
+      "min": 2,
+      "max": 4,
+      "id": "grid_desktop_items_per_row",
+      "label": "Products per row (desktop)",
+      "default": 4
+    }
+  ],
+  "blocks": [
+    {
+      "type": "collection",
+      "name": "Collection",
+      "settings": [
+        {
+          "type": "collection",
+          "id": "collection",
+          "label": "Collection"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Heading",
+          "info": "If none is set, collection title is used."
+        },
+        {
+          "type": "range",
+          "id": "grid_items_count",
+          "min": 2,
+          "max": 50,
+          "step": 1,
+          "label": "Products to show",
+          "default": 8
+        },
+        {
+          "type": "text",
+          "id": "button_text",
+          "label": "Button text",
+          "default": "View all products"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "category": "Collection",
+      "name": "Featured collections kim",
+      "settings": {},
+      "blocks": [
+        {
+          "type": "collection"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
