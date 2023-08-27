@@ -39,9 +39,7 @@
           {%- endif -%}
 
           <p class="announcement-bar__message h5">
-            {% comment %} <span>{{ section.blocks.first.settings.text | escape }}</span> {% endcomment %}
-
-            <span>{{ section.blocks.settings.image | image_url: width: 3840 | image_tag: loading: 'lazy' }}</span>
+            <span>{{ section.blocks.first.settings.text | escape }}</span>
 
             {%- if section.blocks.first.settings.link != blank -%}
               {% render 'icon-arrow' %}
@@ -103,7 +101,8 @@
                     {%- endif -%}
 
                     <p class="announcement-bar__message h5">
-                      <span>{{ block.settings.text | escape }}</span>
+                      {{ block.settings.image | image_url: width: 3840 | image_tag: loading: 'lazy' }}
+                      {% comment %} <span>{{ block.settings.text | escape }}</span> {% endcomment %}
                       {%- if block.settings.link != blank -%}
                         {% render 'icon-arrow' %}
                       {%- endif -%}
@@ -218,7 +217,7 @@
 
 {% schema %}
 {
-  "name": "t:sections.announcement-bar.name",
+  "name": "Announcement-bar-kim",
   "max_blocks": 12,
   "class": "announcement-bar-section",
   "enabled_on": {
@@ -317,7 +316,7 @@
   ],
   "presets": [
     {
-      "name": "t:sections.announcement-bar.presets.name",
+      "name": "Announcement-bar-kim",
       "blocks": [
         {
           "type": "announcement"
