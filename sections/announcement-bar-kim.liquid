@@ -114,7 +114,7 @@
                       class="announcement-bar__message h5"
                       style="background-image:'{{ block.settings.image }}'"
                     >
-                      {% comment %} <span>{{ block.settings.text | escape }}</span> {% endcomment %}
+                      <span>{{ block.settings.text | escape }}</span>
                       {%- if block.settings.link != blank -%}
                         {% render 'icon-arrow' %}
                       {%- endif -%}
