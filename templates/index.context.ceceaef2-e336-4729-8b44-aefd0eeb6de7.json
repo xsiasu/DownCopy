@@ -1,5 +1,5 @@
 {
-  "parent": "header-group.json",
+  "parent": "index.json",
   "context": {
     "market": "ceceaef2-e336-4729-8b44-aefd0eeb6de7"
   },
