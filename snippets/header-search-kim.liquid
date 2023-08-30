@@ -7,7 +7,18 @@
   Usage:
   {% render 'header-search', input_id: 'My-Id'%}
 {% endcomment %}
-
+<style>
+  .input--search {
+    position: relative;
+  }
+  .btn--search {
+    position: absolute;
+    right: 0;
+    top: 0;
+    background: transparent;
+    border: 0;
+  }
+</style>
 <div
   class="search-modal__content{% if settings.inputs_shadow_vertical_offset != 0 and settings.inputs_shadow_vertical_offset < 0 %} search-modal__content-top{% else %} search-modal__content-bottom{% endif %}"
   tabindex="-1"
@@ -18,7 +29,7 @@
     <search-form class="search-modal__form">
   {%- endif -%}
   <form action="{{ routes.search_url }}" method="get" role="search" class="" style="width:400px">
-    <div class="input-group">
+    <div class="input--search">
       <input
         class="form-control"
         id="{{ input_id }}"
@@ -50,7 +61,7 @@
           <use xlink:href="#icon-reset">
         </svg>
       </button>
-      <button class="btn btn-primary" aria-label="{{ 'general.search.search' | t }}">
+      <button class="btn--search" aria-label="{{ 'general.search.search' | t }}">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="16"
