@@ -328,11 +328,7 @@ slider-component.slider-component-full-width {
     color: rgb(var(--color-foreground));
 }
 
-.slider-buttons {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
+.slider-buttons {}
 
 @media screen and (min-width: 990px) {
     .slider:not(.slider--everywhere):not(.slider--desktop)+.slider-buttons {
@@ -354,14 +350,19 @@ slider-component.slider-component-full-width {
 
 .slider-button {
     color: rgba(var(--color-foreground), 0.75);
-    background: transparent;
-    border: none;
-    cursor: pointer;
-    width: 44px;
-    height: 44px;
+    border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
+    color: rgb(255, 255, 255);
+    cursor: pointer;
+    outline: 0px;
+    appearance: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    background-color: rgba(0, 0, 0, 0.2);
 }
 
 .slider-button:not([disabled]):hover {
@@ -383,6 +384,20 @@ slider-component.slider-component-full-width {
 
 .slider-button--prev .icon {
     transform: rotate(90deg);
+}
+
+.slider-button--next {
+    position: absolute;
+    right: 0;
+    top: 0;
+    transform: translateY(50%);
+}
+
+.slider-button--prev {
+    position: absolute;
+    left: 0;
+    top: 0;
+    transform: translateY(50%);
 }
 
 .slider-button--next:not([disabled]):hover .icon {
