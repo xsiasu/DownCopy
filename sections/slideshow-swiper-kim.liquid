@@ -75,7 +75,27 @@
   }
   .swiper-pagination {
     position: static;
+    margin-top: 10px;
   }
+  .swiper-button-next,
+  .swiper-button-prev {
+    display: block !important;
+    color: rgba(var(--color-foreground), 0.75);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    cursor: pointer;
+    outline: 0px;
+    -webkit-appearance: none;
+    appearance: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    background-color: #0003;
+  }
+
   @media (min-width: 992px) {
     .mobile-image {
       display: none;
