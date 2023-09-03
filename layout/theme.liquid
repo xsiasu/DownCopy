@@ -14,9 +14,9 @@
       rel="stylesheet"
     >
 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css">
+    {% comment %} <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"> {% endcomment %}
     {% comment %} ksk flick css {% endcomment %}
-    <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
+    {% comment %} <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css"> {% endcomment %}
     {% comment %} ksk flick css {% endcomment %}
 
     {%- if settings.favicon != blank -%}
@@ -41,7 +41,7 @@
     {% render 'meta-tags' %}
 
     {% comment %} ksk {% endcomment %}
-    <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+    {% comment %} <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script> {% endcomment %}
     <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
     {% comment %} //ksk {% endcomment %}
     <script src="{{ 'constants.js' | asset_url }}" defer="defer"></script>
