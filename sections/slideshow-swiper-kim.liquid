@@ -18,8 +18,8 @@
               {{ block.settings.image | image_url: width: 3840 | image_tag: loading: 'lazy' }}
             </div>
             <div class="text--area">
-              <p>{{ block.settings.heading | escape }}</p>
-              <p>{{ block.settings.heading | escape }}</p>
+              <p class="heading">{{ block.settings.heading | escape }}</p>
+              <p class="sub--heading">{{ block.settings.heading | escape }}</p>
             </div>
           </div>
         {% endif %}
@@ -111,6 +111,27 @@
     }
     .text--area {
       position: absolute;
+      bottom: 0;
+      z-index: 10;
+      padding: 25px;
+    }
+    .text--area .heading {
+      font-weight: bold;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      word-break: break-word;
+      word-wrap: normal;
+      white-space: nowrap;
+      font-size: 23px;
+    }
+    .text--area .sub--heading {
+      font-weight: bold;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      word-break: break-word;
+      word-wrap: normal;
+      white-space: nowrap;
+      font-size: 23px;
     }
   }
 </style>
