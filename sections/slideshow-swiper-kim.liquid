@@ -102,6 +102,32 @@
     background-color: #0003;
   }
 
+  .text--area {
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    z-index: 10;
+    padding: 25px;
+  }
+  .text--area .heading {
+    color: #fff;
+    font-weight: bold;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-break: break-word;
+    word-wrap: normal;
+    white-space: nowrap;
+    font-size: 23px;
+  }
+  .text--area .sub--heading {
+    color: #fff;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-break: break-word;
+    word-wrap: normal;
+    white-space: nowrap;
+    font-size: 15px;
+  }
   @media (min-width: 992px) {
     .mobile--image {
       display: none;
@@ -150,17 +176,17 @@
       // when window width is >= 320px
       320: {
         slidesPerView: 1,
-        spaceBetween: 20,
+        spaceBetween: 15,
       },
       // when window width is >= 480px
       480: {
         slidesPerView: 1,
-        spaceBetween: 30,
+        spaceBetween: 15,
       },
       // when window width is >= 640px
       640: {
-        slidesPerView: 3,
-        spaceBetween: 40,
+        slidesPerView: 2,
+        spaceBetween: 20,
       },
     },
     // If we need pagination
