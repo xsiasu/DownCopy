@@ -86,7 +86,13 @@
     <div class="collection section-{{ section.id }}-padding{% if section.settings.full_width %} collection--full-width{% endif %}">
       <div class="collection__title title-wrapper title-wrapper--no-top-margin {% if show_mobile_slider %} title-wrapper--self-padded-tablet-down{% endif %}{% if show_desktop_slider %} collection__title--desktop-slider{% endif %}">
         {%- if section.settings.title != blank -%}
-          <h2 class="title inline-richtext {{ section.settings.heading_size }}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+          <h2
+            class="
+              title inline-richtext
+              {{ section.settings.heading_size }}
+              {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}
+            "
+          >
             {{ section.settings.title }}
           </h2>
         {%- endif -%}
@@ -469,7 +475,7 @@
       "step": 4,
       "unit": "px",
       "label": "t:sections.all.padding.padding_top",
-      "default": 36
+      "default": 0
     },
     {
       "type": "range",
