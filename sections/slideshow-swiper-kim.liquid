@@ -14,7 +14,13 @@
           <div
             class="swiper-slide desktop-image shadow-kim"
           >
-            {{ block.settings.image | image_url: width: 3840 | image_tag: loading: 'lazy' }}
+            <div class="image--area">
+              {{ block.settings.image | image_url: width: 3840 | image_tag: loading: 'lazy' }}
+            </div>
+            <div class="text--area">
+              <p>{{ block.settings.heading | escape }}</p>
+              <p>{{ block.settings.heading | escape }}</p>
+            </div>
           </div>
         {% endif %}
       {% endfor %}
@@ -193,6 +199,12 @@
           "info": "750 x 1100px jpg recommended. If none is set, desktop image will be cropped."
         },
         {
+          "type": "text",
+          "id": "text",
+          "label": "title",
+          "info": "1560 x 1050px jpg recommended"
+        },
+        {
           "type": "checkbox",
           "id": "apply_overlay",
           "label": "Apply overlay on image",
@@ -225,16 +237,17 @@
         },
         {
           "type": "text",
-          "id": "subheading",
-          "label": "Sub-heading",
-          "default": "Slide title"
+          "id": "heading",
+          "label": "heading",
+          "default": "Heading title"
         },
         {
           "type": "text",
-          "id": "title",
-          "label": "Heading",
-          "default": "Tell your story"
+          "id": "subheading",
+          "label": "Sub-heading title",
+          "default": "Slide title"
         },
+
         {
           "type": "header",
           "content": "Button 1"

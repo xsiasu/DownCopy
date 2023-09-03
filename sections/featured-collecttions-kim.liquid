@@ -105,20 +105,22 @@
     </div>
   {% endfor %}
 </section>
-<script>
-  var elem = document.querySelector('.Carousel');
-  var flkty = new Flickity(elem, {
-    prevNextButtons: true,
-    pageDots: false,
-    wrapAround: false,
-    contain: true,
-    cellAlign: 'center',
-    watchCSS: true,
-    dragThreshold: 8,
-    groupCells: true,
-    arrowShape: { x0: 20, x1: 60, y1: 40, x2: 60, y2: 35, x3: 25 },
-  });
-</script>
+{% comment %}
+  <script>
+    var elem = document.querySelector('.Carousel');
+    var flkty = new Flickity(elem, {
+      prevNextButtons: true,
+      pageDots: false,
+      wrapAround: false,
+      contain: true,
+      cellAlign: 'center',
+      watchCSS: true,
+      dragThreshold: 8,
+      groupCells: true,
+      arrowShape: { x0: 20, x1: 60, y1: 40, x2: 60, y2: 35, x3: 25 },
+    });
+  </script>
+{% endcomment %}
 
 <style>
   /** * ---sk------------------------------------------------------------------------- * Product item * ---------------------------------------------------------------------------- */

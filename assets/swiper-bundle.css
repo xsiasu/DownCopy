@@ -368,13 +368,13 @@
 /* Navigation font start */
 .swiper-button-prev:after {
   position: absolute;
-  top: 9px;
+  top: 10px;
   left: 16px;
 }
 
 .swiper-button-next:after {
   position: absolute;
-  top: 9px;
+  top: 10px;
   right: 16px;
 }
 
