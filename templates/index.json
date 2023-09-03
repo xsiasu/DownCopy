@@ -101,7 +101,6 @@
           "type": "image",
           "settings": {
             "image": "shopify:\/\/shop_images\/3450e202adfb4e7e81ae3941b40e16dd.jpg",
-            "text": "",
             "apply_overlay": true,
             "content_position": "bottomLeft",
             "heading": "似合うラボ10月分体験予約受付中",
@@ -116,7 +115,6 @@
           "type": "image",
           "settings": {
             "image": "shopify:\/\/shop_images\/74d515a276b448b0af1c1e7abcd1983e.jpg",
-            "text": "",
             "apply_overlay": true,
             "content_position": "bottomLeft",
             "heading": "Heading title",
@@ -131,7 +129,6 @@
           "type": "image",
           "settings": {
             "image": "shopify:\/\/shop_images\/74d515a276b448b0af1c1e7abcd1983e.jpg",
-            "text": "",
             "apply_overlay": true,
             "content_position": "bottomLeft",
             "heading": "Heading title",
@@ -146,7 +143,6 @@
           "type": "image",
           "settings": {
             "image": "shopify:\/\/shop_images\/ce5a1fa027f34181b0336ee8425a7085.jpg",
-            "text": "",
             "apply_overlay": true,
             "content_position": "bottomLeft",
             "heading": "Heading title",
@@ -161,7 +157,6 @@
           "type": "image",
           "settings": {
             "image": "shopify:\/\/shop_images\/ce5a1fa027f34181b0336ee8425a7085.jpg",
-            "text": "",
             "apply_overlay": true,
             "content_position": "bottomLeft",
             "heading": "Heading title",
@@ -338,7 +333,7 @@
         "enable_quick_add": true,
         "columns_mobile": "2",
         "swipe_on_mobile": false,
-        "padding_top": 36,
+        "padding_top": 0,
         "padding_bottom": 36
       }
     },
