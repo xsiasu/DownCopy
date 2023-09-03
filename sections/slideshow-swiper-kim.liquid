@@ -19,7 +19,7 @@
             </div>
             <div class="text--area">
               <p class="heading">{{ block.settings.heading | escape }}</p>
-              <p class="sub--heading">{{ block.settings.heading | escape }}</p>
+              <p class="sub--heading">{{ block.settings.subheading | escape }}</p>
             </div>
           </div>
         {% endif %}
@@ -110,6 +110,7 @@
       display: block;
     }
     .text--area {
+      width: 100%;
       position: absolute;
       bottom: 0;
       z-index: 10;
@@ -223,12 +224,6 @@
           "id": "mobile_image",
           "label": "Mobile image",
           "info": "750 x 1100px jpg recommended. If none is set, desktop image will be cropped."
-        },
-        {
-          "type": "text",
-          "id": "text",
-          "label": "title",
-          "info": "1560 x 1050px jpg recommended"
         },
         {
           "type": "checkbox",
