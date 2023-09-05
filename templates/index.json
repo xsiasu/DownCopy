@@ -84,7 +84,7 @@
       ],
       "disabled": true,
       "settings": {
-        "layout": "grid",
+        "layout": "full_bleed",
         "slide_height": "small",
         "slider_visual": "dots",
         "auto_rotate": false,
