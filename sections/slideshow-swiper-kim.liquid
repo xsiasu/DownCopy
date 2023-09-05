@@ -166,12 +166,9 @@
 
 <script>
   new Swiper('.mySwiper', {
-    direction: 'horizontal',
     loop: true,
-    slidesPerView: 3,
     spaceBetween: 30,
     centerSlides: true,
-    loopAdditionalSlides: 1,
     breakpoints: {
       // when window width is >= 320px
       320: {
@@ -185,13 +182,14 @@
       },
       // when window width is >= 640px
       640: {
-        slidesPerView: 2,
+        slidesPerView: 3,
         spaceBetween: 20,
       },
     },
     // If we need pagination
     pagination: {
       el: '.swiper-pagination',
+      clickable: true,
     },
 
     // Navigation arrows
