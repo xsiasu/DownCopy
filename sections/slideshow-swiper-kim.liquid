@@ -42,6 +42,7 @@
     overflow: hidden;
     width: 100%;
     height: 100%;
+    padding: 0 50px;
   }
 
   .swiper-slide {
@@ -167,8 +168,9 @@
 <script>
   new Swiper('.mySwiper', {
     loop: true,
-    spaceBetween: 30,
-    centerSlides: true,
+    {% comment %} loopAdditionalSlides: 1, {% endcomment %}
+    slidesPerView: 'auto',
+    spaceBetween: 0,
     breakpoints: {
       // when window width is >= 320px
       320: {
@@ -186,13 +188,12 @@
         spaceBetween: 20,
       },
     },
-    // If we need pagination
+    initialSlide: 0,
     pagination: {
       el: '.swiper-pagination',
       clickable: true,
+      type: 'bullets',
     },
-
-    // Navigation arrows
     navigation: {
       nextEl: '.swiper-button-next',
       prevEl: '.swiper-button-prev',
