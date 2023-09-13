@@ -38,11 +38,13 @@
     box-sizing: border-box;
   }
   .swiper {
-    margin: 50px 0;
+    margin-left: auto;
+    margin-right: auto;
     overflow: hidden;
+    padding-top: 40px;
     width: 100%;
     height: 100%;
-    padding: 0 50px;
+    padding-left: 100px;
   }
 
   .swiper-slide {
@@ -168,9 +170,9 @@
 <script>
   new Swiper('.mySwiper', {
     loop: true,
-    {% comment %} loopAdditionalSlides: 1, {% endcomment %}
+    loopAdditionalSlides: 1,
     slidesPerView: 'auto',
-    spaceBetween: 0,
+    spaceBetween: 30,
     breakpoints: {
       // when window width is >= 320px
       320: {
@@ -185,7 +187,7 @@
       // when window width is >= 640px
       640: {
         slidesPerView: 3,
-        spaceBetween: 20,
+        spaceBetween: 30,
       },
     },
     initialSlide: 0,
