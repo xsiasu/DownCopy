@@ -1,5 +1,5 @@
 <section id="section-{{section.id}}">
-  <div class="swiper mySwiper">
+  <div class="swiper">
     <div class="swiper-wrapper">
       {% for block in section.blocks %}
         {% if block.settings.mobile_image %}
@@ -38,13 +38,11 @@
     box-sizing: border-box;
   }
   .swiper {
-    margin-left: auto;
-    margin-right: auto;
     overflow: hidden;
-    padding-top: 40px;
+
     width: 100%;
     height: 100%;
-    padding-left: 100px;
+    padding: 40px 50px;
   }
 
   .swiper-slide {
@@ -168,11 +166,13 @@
 <!-- Swiper JS -->
 
 <script>
-  new Swiper('.mySwiper', {
+  new Swiper('.swiper', {
+    direction: 'horizontal',
     loop: true,
-    loopAdditionalSlides: 1,
-    slidesPerView: 'auto',
+    slidesPerView: 3,
     spaceBetween: 30,
+    centerSlides: true,
+    initialSlide: 1,
     breakpoints: {
       // when window width is >= 320px
       320: {
