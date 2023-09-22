@@ -2509,6 +2509,11 @@ product-info .loading-overlay:not(.hidden)~*,
   .header--mobile-left {
     grid-template-columns: auto 2fr 1fr;
   }
+
+  .header__icon--cart {
+    position: relative;
+    margin-right: 0 !important;
+  }
 }
 
 @media screen and (min-width: 990px) {
