@@ -108,7 +108,7 @@
 }
 
 
-/* normal 상태*/
+/* normal 상태 buy in now*/
 .shopify-payment-button__button--unbranded {
   background-color: rgba(var(--bs-primary-rgb));
   border-color: rgb(var(--bs-primary-rgb));

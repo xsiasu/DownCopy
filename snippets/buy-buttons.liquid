@@ -73,11 +73,16 @@
               assign quantity_rule_soldout = true
             endif
           -%}
+
+          <h1>buttons---add to cart</h1>
           <button
             id="ProductSubmitButton-{{ section_id }}"
             type="submit"
             name="add"
-            class="product-form__submit btn btn-lg button--full-width {% if show_dynamic_checkout %}btn-secondary{% else %}btn-primary{% endif %}"
+            class="
+              product-form__submit btn btn-lg button--full-width
+              {% if show_dynamic_checkout %}btn-secondary{% else %}btn-primary{% endif %}
+            "
             {% if product.selected_or_first_available_variant.available == false or quantity_rule_soldout %}
               disabled
             {% endif %}
@@ -92,6 +97,7 @@
                 {{ 'products.product.add_to_cart' | t }}
               {%- endif -%}
             </span>
+
             <div class="loading-overlay__spinner hidden">
               <svg
                 aria-hidden="true"

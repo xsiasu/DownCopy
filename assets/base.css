@@ -5,6 +5,8 @@
   --alpha-badge-border: 0.1;
   --page-width: 980px;
   --font-body-family: 'Zen Kaku Gothic Antique', sans-serif;
+  --buttons-radius-outset: 5px;
+  --buttons-radius: 5px;
 }
 
 .product-card-wrapper .card,
@@ -1895,7 +1897,7 @@ input[type='checkbox'] {
 }
 
 .quantity:after {
-  pointer-events: none;
+  /* pointer-events: none;
   content: '';
   position: absolute;
   top: var(--inputs-border-width);
@@ -1906,7 +1908,7 @@ input[type='checkbox'] {
   border-radius: var(--inputs-radius);
   box-shadow: 0 0 0 var(--inputs-border-width) rgba(var(--color-foreground), var(--inputs-border-opacity));
   transition: box-shadow var(--duration-short) ease;
-  z-index: 1;
+  z-index: 1; */
 }
 
 .quantity:before {

@@ -45,7 +45,7 @@
       </p>
     {%- endif -%}
   </div>
-
+  <div><h1>Main cart</h1></div>
   <form action="{{ routes.cart_url }}" class="cart__contents critical-hidden" method="post" id="cart">
     <div class="cart__items" id="main-cart-items" data-id="{{ section.id }}">
       <div class="js-contents">
@@ -251,7 +251,11 @@
                             </button>
                           {%- endif -%}
                           <quantity-input class="quantity cart-quantity">
-                            <button class="quantity__button no-js-hidden" name="minus" type="button">
+                            <button
+                              class="quantity__button no-js-hidden btn btn-outline-secondary"
+                              name="minus"
+                              type="button"
+                            >
                               <span class="visually-hidden">
                                 {{- 'products.product.quantity.decrease' | t: product: item.product.title | escape -}}
                               </span>
@@ -275,7 +279,11 @@
                               id="Quantity-{{ item.index | plus: 1 }}"
                               data-index="{{ item.index | plus: 1 }}"
                             >
-                            <button class="quantity__button no-js-hidden" name="plus" type="button">
+                            <button
+                              class="quantity__button no-js-hidden btn btn-outline-secondary"
+                              name="plus"
+                              type="button"
+                            >
                               <span class="visually-hidden">
                                 {{- 'products.product.quantity.increase' | t: product: item.product.title | escape -}}
                               </span>
