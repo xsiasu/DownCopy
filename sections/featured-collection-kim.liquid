@@ -133,9 +133,9 @@
                 show_secondary_image: section.settings.show_secondary_image,
                 show_vendor: section.settings.show_vendor,
                 show_rating: section.settings.show_rating,
-                show_quick_add: section.settings.enable_quick_add,
                 section_id: section.id
               %}
+              {% comment %} show_quick_add: section.settings.enable_quick_add, {% endcomment %}
             </li>
           {%- else -%}
             {%- for i in (1..4) -%}
