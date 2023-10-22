@@ -1,7 +1,7 @@
-@font-face {
+/* @font-face {
   font-family: "hiragino kaku gothic pron w3";
   src: url("{{ 'hiragino-kaku-gothic-pron-w3' | asset_url }}") format("woff");
-}
+} */
 
 :root {
   --alpha-button-background: 1;
@@ -9,7 +9,7 @@
   --alpha-link: 0.85;
   --alpha-badge-border: 0.1;
   --page-width: 980px;
-  --font-body-family: 'hiragino kaku gothic pron w3', sans-serif;
+  --font-body-family: 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', 'メイリオ', 'Lucida Grande', Verdana, sans-serif;
   --buttons-radius-outset: 5px;
   --buttons-radius: 5px;
 }
