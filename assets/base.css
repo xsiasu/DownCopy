@@ -1,10 +1,15 @@
+@font-face {
+  font-family: "hiragino kaku gothic pron w3";
+  src: url("{{ 'hiragino-kaku-gothic-pron-w3' | file_url }}") format("WOFF");
+}
+
 :root {
   --alpha-button-background: 1;
   --alpha-button-border: 1;
   --alpha-link: 0.85;
   --alpha-badge-border: 0.1;
   --page-width: 980px;
-  --font-body-family: 'Zen Kaku Gothic Antique', sans-serif;
+  --font-body-family: 'hiragino kaku gothic pron w3', sans-serif;
   --buttons-radius-outset: 5px;
   --buttons-radius: 5px;
 }
@@ -3535,6 +3540,12 @@ details-disclosure>details {
 
 
 /* ksk 0725
+@font-face {
+  font-family: "Noto Sans JP";
+  src: url("{{ 'NotoSansJP-Regular' | asset_url }}") format("ttf");
+} */
+
+/* 
 @font-face {
   font-family: "Noto Sans JP";
   src: url("{{ 'NotoSansJP-Regular' | asset_url }}") format("ttf");
