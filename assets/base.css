@@ -1,8 +1,3 @@
-/* @font-face {
-  font-family: "hiragino kaku gothic pron w3";
-  src: url("{{ 'hiragino-kaku-gothic-pron-w3' | asset_url }}") format("woff");
-} */
-
 :root {
   --alpha-button-background: 1;
   --alpha-button-border: 1;
@@ -3536,17 +3531,3 @@ details-disclosure>details {
     /* Prevent the border from growing on buttons when this effect is on. */
   }
 }
-
-
-
-/* ksk 0725
-@font-face {
-  font-family: "Noto Sans JP";
-  src: url("{{ 'NotoSansJP-Regular' | asset_url }}") format("ttf");
-} */
-
-/* 
-@font-face {
-  font-family: "Noto Sans JP";
-  src: url("{{ 'NotoSansJP-Regular' | asset_url }}") format("ttf");
-} */
